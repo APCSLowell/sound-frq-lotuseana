@@ -23,7 +23,6 @@ public class Sound
       else if (samples[i]<(limit*-1)){
         samples[i]=limit*-1;
         count++;
-      
       }
     }
     return count;
@@ -37,7 +36,14 @@ public class Sound
    *  Postcondition: the length of samples reflects the removal of starting silence
    */
   public void trimSilenceFromBeginning()
-  {
-    /* to be implemented in part (b) */
+  int[]a;
+  int aInd =0;
+  boolean trimmed =false;
+  for (int i=0; i<samples.length; i++){
+  if (trimmed || samples[i]!=0){
+    a[aInd] = samples[i];
+    aInd++;
+    trimmed =true;}
   }
+samples = a;
 }
