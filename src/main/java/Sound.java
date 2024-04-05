@@ -20,8 +20,8 @@ public class Sound
       if (samples[i]>limit){
         samples[i]=limit;
         count++;}
-      else if (samples[i]<(limit*-1)){
-        samples[i]=limit*-1;
+      else if (samples[i]< -limit)){
+        samples[i]=-limit;
         count++;
       }
     }
@@ -35,12 +35,12 @@ public class Sound
    *  Precondition: samples contains at least one nonzero value
    *  Postcondition: the length of samples reflects the removal of starting silence
    */
-  public void trimSilenceFromBeginning()
+  public void trimSilenceFromBeginning(){
   int[]a;
   int aInd =0;
   boolean trimmed =false;
   for (int i=0; i<samples.length; i++){
-  if (trimmed || samples[i]!=0){
+    if (trimmed || samples[i]!=0){
     a[aInd] = samples[i];
     aInd++;
     trimmed =true;}
